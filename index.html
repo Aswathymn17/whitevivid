@@ -43,31 +43,34 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="static/css/style.css" />
 </head>
 <body>
 
 <!-- Top Info Bar -->
 <div class="topbar">
-  <div class="container-fluid px-4">
+  <div class="container-fluid px-2">
     <div class="topbar-inner">
-      <div class="topbar-left">
-        <span class="topbar-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <a href="https://www.google.com/maps/place/White+Vivid+Homestay,+Kuttikanam/@9.5909,76.9759,17z/data=!4m9!3m8!1s0x3b064d0f522e1bbd:0x6af84f7ba7c4a2db!5m2!4m1!1i2!8m2!3d9.590922!4d76.975816!16s%2Fg%2F11qt0z3d7_?hl=en&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Kuttikanam, Idukki, Kerala</a>
-        </span>
-        <span class="topbar-item">
-          <i class="fas fa-envelope"></i>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=thewhitevividholidayhome@gmail.com" target="_blank" rel="noopener noreferrer">thewhitevividholidayhome@gmail.com</a>
-        </span>
-      </div>
-      <div class="topbar-center">
-        <a href="home.html" class="topbar-brand">
-          <img src="static/images/logoedited.png" alt="Logo" />
+      <div class="topbar-brand-block">
+        <a href="index.html" class="topbar-brand">
+          <img src="static/images/White_Vivid_Transparent.png" alt="White Vivid Homestay Logo" />
           <span>White Vivid Homestay</span>
         </a>
       </div>
+
+      <ul class="topbar-nav-menu" id="mainNavLinks">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#About">ABOUT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="#destinations">NEARBY</a></li>
+        <li><a href="#Contact">CONTACT</a></li>
+      </ul>
+
       <div class="topbar-right">
+        <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
         <div class="dropdown phone-dropdown">
           <button class="topbar-phone dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-phone"></i> +91 7907004028
@@ -99,22 +102,6 @@
     </div>
   </div>
 </div>
-
-<!-- Main Navbar -->
-<nav class="main-navbar">
-  <div class="container">
-    <button class="navbar-toggler-custom" id="navToggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    <ul class="main-nav-links" id="mainNavLinks">
-      <li><a href="home.html">HOME</a></li>
-      <li><a href="#About">ABOUT</a></li>
-      <li><a href="gallery.html">GALLERY</a></li>
-      <li><a href="#destinations">NEARBY</a></li>
-      <li><a href="#Contact">CONTACT</a></li>
-    </ul>
-  </div>
-</nav>
 
 <!-- Image Slider (Carousel) -->
 <div class="swiper hero-swiper">
@@ -151,37 +138,207 @@
 </div>
 
 <!-- About Section -->
-<section id="About" class="about-section pt-0 pb-5">
+<section id="About" class="about-section pt-5 pb-5">
   <div class="container">
     <div class="about-layout">
       <div class="about-intro">
         <div class="about-kicker">
           <span class="about-kicker-text">🌿 WHITE VIVID HOMESTAY 🌿</span>
         </div>
-        <h2 class="about-title"><span>A Quiet Escape,</span><span class="about-title-line2">Thoughtfully Designed</span></h2>
+        <h2 class="about-title" style="margin-top: 2.5rem;"><span>A Quiet Escape,</span><span class="about-title-line2">Thoughtfully Designed</span></h2>
+        <img src="static/images/about.png" alt="White Vivid Homestay about image" class="about-feature-image" style="width:100%; max-width:420px; border-radius:18px; margin-top:2.25rem; margin-left:0.75rem; box-shadow:0 18px 40px rgba(15, 36, 30, 0.12); display:block;">
       </div>
       <div class="about-text-wrap">
-        <p class="about-text about-text-step-1">White Vivid Homestay is a premium and peaceful homestay in Kuttikanam, Kerala, offering a perfect blend of comfort, nature, and privacy. Surrounded by lush greenery and mist-covered hills, it is an ideal choice for travelers seeking a peaceful stay in Vagamon away from the rush of city life.</p>
-        <p class="about-text about-text-step-2">Conveniently located near popular Vagamon tourist attractions, our homestay is suitable for families, couples, and groups looking for a relaxing and memorable getaway.</p>
-        <p class="about-text about-text-step-3">Our rooms are spacious, clean, and thoughtfully arranged to ensure a comfortable stay. Guests can wake up to scenic hill views, enjoy the cool mountain breeze, and experience a calm, refreshing atmosphere throughout their stay.</p>
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+          <span style="display:inline-block; width:34px; height:1px; background:#c8b39a;"></span>
+          <div class="about-inline-tagline" style="font-family:'Josefin Sans', 'Segoe UI', sans-serif; font-size:0.7rem; letter-spacing:0.18em; color:#1d4838; text-align:left; font-weight:300; text-transform:uppercase; margin:0;">🍃A Place to Unwind🍃</div>
+          <span style="display:inline-block; width:34px; height:1px; background:#c8b39a;"></span>
+        </div>
+        <p class="about-text about-text-step-1"><strong>White Vivid Homestay, Kuttikanam</strong>, your peaceful getaway in the beautiful hills of Idukki, Kerala. Our cosy two-bedroom villa offers a relaxing stay for families, couples, and friends, with a comfortable living area, pantry, and balcony with scenic views.</p>
+        <p class="about-text about-text-step-2">Surrounded by lush greenery and refreshing mountain air, our homestay is an ideal choice for a family holiday, romantic escape, or weekend getaway. Explore nearby attractions like Panchalimedu, Parunthumpara, and Vagamon while enjoying the comfort and privacy of a homely stay.</p>
+        <p class="about-text about-text-step-3">If you are searching online for a homestay in Kuttikanam, accommodation in Idukki, a family stay in Kerala, or a relaxing hill station getaway, make White Vivid Homestay part of your travel plans.</p>
+        <p class="about-text about-text-step-4"><strong>Experience the beauty of Kuttikanam with White Vivid Homestay — your home in the hills.</strong></p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-intro-section">
+  <div class="container home-intro-wrap">
+    <div class="home-intro-copy">
+      <div class="home-intro-kicker">
+        <span class="home-intro-line"></span>
+        <span class="home-intro-divider">🏡 THE VILLA 🏡</span>
+        <span class="home-intro-line"></span>
+      </div>
+      <h2 class="home-intro-title home-intro-title-one">Exclusive Living</h2>
+      <h2 class="home-intro-title home-intro-title-two">Space, privacy,</h2>
+      <h2 class="home-intro-title home-intro-title-three">vivid horizons.</h2>
+    </div>
+
+    <div class="home-intro-details">
+      <p>
+       Step into White Vivid Homestay, where every corner is reserved exclusively for your group.
+       From sunrise coffee on the glass balcony to movie nights across spacious living areas, 
+       enjoy complete seclusion without sharing a single space.
+      </p>
+      <button class="home-intro-btn" type="button">CHECK AVAILABILITY</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="inside-section py-5">
+  <div class="container">
+    <div class="inside-header">
+      <span class="inside-line"></span>
+      <h2>🤍 Explore White Vivid 🤍</h2>
+      <span class="inside-line"></span>
+    </div>
+
+    <div class="inside-grid">
+      <article class="inside-card">
+        <img src="static/images/img1.jpg.jpeg" alt="Master Bedroom" />
+        <div class="inside-card-body">
+          <h3>Bedroom 1</h3>
+          <div class="room-tags">
+            <span>Queen bed</span>
+            <span>Balcony</span>
+            <span>En-suite</span>
+          </div>
+          <div class="room-tags secondary-tags">
+            <span>Hot water</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="inside-card">
+        <img src="static/images/img2.jpg.jpeg" alt="Garden Room" />
+        <div class="inside-card-body">
+          <h3>Bedroom 2</h3>
+          <div class="room-tags">
+            <span>Queen bed</span>
+            <span>En-suite</span>
+            <span>Hot water</span>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="inside-card">
+        <img src="static/images/img4.jpeg" alt="Valley Room" />
+        <div class="inside-card-body">
+          <h3>Entertainment Area</h3>
+          <div class="room-tags">
+            <span>Smart TV</span>
+            <span>Sofa Seating</span>
+            <span>Coffee Table</span>
+          </div>
+          <div class="room-tags secondary-tags">
+            <span>Family Time</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="inside-grid inside-grid-secondary mt-4">
+      <article class="inside-card">
+        <img src="static/images/img3.jpg.jpg" alt="Kitchen View" />
+        <div class="inside-card-body">
+          <h3>Formal Living Area</h3>
+          <div class="room-tags">
+            <span>Sofa cum bed</span>
+            <span>Extra sleeping space</span>
+            <span>Table</span>
+          </div>
+          <div class="room-tags secondary-tags">
+            <span>AMBIENT LIGHTING</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="inside-card">
+        <img src="static/images/img5aa.png" alt="Living Area" />
+        <div class="inside-card-body">
+          <h3>Pantry Area</h3>
+          <div class="room-tags">
+            <span>Crockery</span>
+            <span>INDUCTION COOKTOP</span>
+            <span>ELECTRIC KETTLE</span>
+            <span>Balcony View</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="inside-card">
+        <img src="static/images/img6a.png" alt="Balcony View" />
+        <div class="inside-card-body">
+          <h3>Balcony</h3>
+          <div class="room-tags">
+            <span>Hill view</span>
+            <span>SUNSET & SUNRISE VIEW</span>
+            <span>GLASS BALCONY</span>
+          </div>
+          <div class="room-tags secondary-tags">
+            <span>Perfect unwind</span>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- Gallery -->
 <section id="Gallery" class="py-5 bg-light">
+  <div class="home-intro-banner">
+    <div class="container home-intro-banner-inner">
+      <div class="banner-branding">
+        <div class="banner-icon" aria-hidden="true">
+          <span class="roof"></span>
+          <span class="house"></span>
+        </div>
+        <h3>Beyond the Walls</h3>
+      </div>
+
+      <p style="color: #ffffff;">
+        From garden greens to grill-side gatherings, discover the little moments that make a stay at White Vivid truly special.
+      </p>
+
+      <a href="#Contact" class="banner-cta">BOOK THE WHOLE HOME <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
   <div class="container">
-    <h2 class="mb-4 text-center">Moments at White Vivid</h2>
+    <div class="gallery-transparent-pricing" aria-label="Transparent pricing quote">
+      <div class="gallery-pricing-copy-left">
+        <div class="gallery-pricing-kicker">
+          <span class="gallery-pricing-line"></span>
+          <span>🌸 MOMENTS AT WHITE VIVID 🌸</span>
+          <span class="gallery-pricing-line"></span>
+        </div>
+        <h3>
+          <span class="gallery-pricing-phrase">Where Nature</span>
+          <span class="gallery-pricing-italic">Becomes a Memory</span>
+        </h3>
+      </div>
+
+      <div class="gallery-pricing-copy-right">
+        <p>
+         Wake up to misty hills, wander through blooming gardens, and unwind with grill-side evenings under the stars — 
+          <span>at White Vivid, nature turns simple moments into lasting memories.</span>
+        </p>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-4 mb-4">
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/img1.jpg.jpeg" class="img-fluid" alt="Gallery 1">
+              <img src="static/images/gal1 (9).jpeg" class="img-fluid" alt="Gallery 1">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/img1a.jpg.jpeg" alt="Gallery 1 Back">
+              <img src="static/images/gal1 (3).jpeg" alt="Gallery 1 Back">
             </div>
           </div>
         </div>
@@ -190,10 +347,10 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/img2.jpg.jpeg" class="img-fluid" alt="Gallery 2">
+              <img src="static/images/gal1 (7).jpeg" class="img-fluid" alt="Gallery 2">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/img2wm.jpg" alt="Gallery 2 Back">
+              <img src="static/images/gal1 (2).jpeg" alt="Gallery 2 Back">
             </div>
           </div>
         </div>
@@ -202,10 +359,10 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/img3a.jpg" class="img-fluid" alt="Gallery 3">
+              <img src="static/images/img6b.png" class="img-fluid" alt="Gallery 3">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/img3b.jpg" alt="Gallery 3 Back">
+              <img src="static/images/Gemini_Generated_Image_5ihvr25ihvr25ihv.png" alt="Gallery 3 Back">
             </div>
           </div>
         </div>
@@ -214,10 +371,10 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/img4.jpeg" class="img-fluid" alt="Gallery 4">
+              <img src="static/images/gal1 (12).jpeg" class="img-fluid" alt="Gallery 4">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/imge4a.jpeg" alt="Gallery 4 Back">
+              <img src="static/images/gal1 (11).jpeg" alt="Gallery 4 Back">
             </div>
           </div>
         </div>
@@ -226,10 +383,10 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/img5aa.png" class="img-fluid" alt="Gallery 5">
+              <img src="static/images/gal1 (5).jpeg" class="img-fluid" alt="Gallery 5">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/image5a.png" alt="Gallery 5 Back">
+              <img src="static/images/gal1 (1).jpeg" alt="Gallery 5 Back">
             </div>
           </div>
         </div>
@@ -238,14 +395,24 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/img6a.png" class="img-fluid" alt="Gallery 6">
+              <img src="static/images/gal1 (10).jpeg" class="img-fluid" alt="Gallery 6">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/img6b.png" alt="Gallery 6 Back">
+              <img src="static/images/gal1 (8).jpeg" alt="Gallery 6 Back">
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="experiences-intro" aria-label="Our Amenities">
+  <div class="container">
+    <div class="experiences-kicker">
+      <span class="experiences-kicker-line" aria-hidden="true"></span>
+      <span>☀️ Our Amenities ☀️</span>
+      <span class="experiences-kicker-line" aria-hidden="true"></span>
     </div>
   </div>
 </section>
@@ -253,9 +420,20 @@
 <!-- White Vivid Highlights -->
 <section class="why-white-vivid py-5">
   <div class="container">
-    <div class="featured-facilities-head text-center">
-      <h2 class="featured-facilities-title">SIGNATURE COMFORTS</h2>
-      <p class="featured-facilities-subtitle">Thoughtfully curated for a stay that feels just like home</p>
+    <div class="home-intro-banner signature-banner">
+      <div class="home-intro-banner-inner">
+        <div class="banner-branding">
+          <div class="banner-icon" aria-hidden="true">
+            <span class="roof"></span>
+            <span class="house"></span>
+          </div>
+          <h2>Signature Comforts</h2>
+        </div>
+
+        <p>Thoughtfully curated for a stay that feels just like home.</p>
+
+        <a href="#Contact" class="banner-cta">BOOK YOUR STAY <span aria-hidden="true">→</span></a>
+      </div>
     </div>
     <div class="row g-4">
       <div class="col-6 col-lg-3">
@@ -267,7 +445,7 @@
             </div>
             <div class="why-back">
               <i class="fas fa-seedling why-icon"></i>
-              <p>Sustainable stay that respects nature and surroundings.</p>
+              <p>Enjoy a relaxing stay surrounded by nature.</p>
             </div>
           </div>
         </div>
@@ -276,12 +454,12 @@
         <div class="why-flip-card">
           <div class="why-flip-inner">
             <div class="why-front">
-              <i class="fas fa-mountain why-icon"></i>
-              <h4 class="why-title">Serene Escape</h4>
+              <i class="fas fa-car-side why-icon"></i>
+              <h4 class="why-title">On-Site Parking</h4>
             </div>
             <div class="why-back">
-              <i class="fas fa-mountain why-icon"></i>
-              <p>Peaceful location away from city noise.</p>
+              <i class="fas fa-car-side why-icon"></i>
+              <p>Convenient parking for your vehicle.</p>
             </div>
           </div>
         </div>
@@ -291,7 +469,7 @@
           <div class="why-flip-inner">
             <div class="why-front">
               <i class="fas fa-handshake-angle why-icon"></i>
-              <h4 class="why-title">Heartfelt Hosting</h4>
+              <h4 class="why-title">Warm Hospitality</h4>
             </div>
             <div class="why-back">
               <i class="fas fa-handshake-angle why-icon"></i>
@@ -320,13 +498,13 @@
         <div class="why-flip-card">
           <div class="why-flip-inner">
             <div class="why-front">
-              <i class="fas fa-bed why-icon"></i>
-              <h4 class="why-title">Tailored Comfort</h4>
+              <i class="fas fa-tree why-icon"></i>
+              <h4 class="why-title">Garden Space</h4>
             </div>
             <div class="why-back">
-              <i class="fas fa-bed why-icon"></i>
+              <i class="fas fa-tree why-icon"></i>
               
-              <p>Personalized care for every guest.</p>
+              <p>Relax among beautiful garden plants.</p>
             </div>
           </div>
         </div>
@@ -336,7 +514,7 @@
           <div class="why-flip-inner">
             <div class="why-front">
               <i class="fas fa-fire-flame-curved why-icon"></i>
-              <h4 class="why-title">Flame &amp; Feast Nights</h4>
+              <h4 class="why-title">BBQ Nights</h4>
             </div>
             <div class="why-back">
               <i class="fas fa-fire-flame-curved why-icon"></i>
@@ -350,13 +528,13 @@
         <div class="why-flip-card">
           <div class="why-flip-inner">
             <div class="why-front">
-              <i class="fas fa-leaf why-icon"></i>
-              <h4 class="why-title">Nature Friendly Stay</h4>
+              <i class="fas fa-wifi why-icon"></i>
+              <h4 class="why-title">Free Wi-Fi</h4>
             </div>
             <div class="why-back">
-              <i class="fas fa-leaf why-icon"></i>
+              <i class="fas fa-wifi why-icon"></i>
              
-              <p>Environmentally conscious living experience.</p>
+              <p>Stay connected with Wi-Fi during your stay.</p>
             </div>
           </div>
         </div>
@@ -371,7 +549,7 @@
             <div class="why-back">
               <i class="fas fa-compass why-icon"></i>
              
-              <p>Close to popular tourist spots and nature trails.</p>
+              <p>Explore beautiful hill views, tourist spots, and nature trails.</p>
             </div>
           </div>
         </div>
@@ -492,206 +670,301 @@
 </section>
 
 <!-- Testimonials -->
-<section class="testimonials-section py-5">
-  <div class="container-fluid px-4 px-lg-5">
-    <div class="testimonials-header">
-      <div class="testimonials-header-main text-center">
-        <span class="testimonials-kicker">GUEST REVIEWS</span>
-        <h2 class="testimonials-heading">What Guests Love About White Vivid</h2>
+<section class="testimonials-section">
+  <div class="testimonials-header">
+    <div class="testimonials-title-wrap">
+      <h2 class="testimonials-heading">GUEST TESTIMONIALS</h2>
+    </div>
+
+    <div class="testimonials-subheading-block">
+      <div class="testimonials-subheading">Memories Made at White Vivid</div>
+      <div class="testimonials-subheading-small">Heartfelt words from our guests, cherished memories from every stay.</div>
+    </div>
+
+    <div class="reviews-score" aria-label="Google reviews average rating 4.9 out of 5">
+      <div class="reviews-score-main">4.9/5</div>
+      <div class="reviews-score-stars">★★★★★</div>
+      <div class="reviews-score-label">GOOGLE REVIEWS AVERAGE</div>
+    </div>
+  </div>
+
+  <div class="swiper testimonialSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">GOKULNATH VAIRAMUTHU <span>• 2026</span></p>
+          <p class="testimonial-quote">"One of the best stays I've ever experienced near Thekkady. The place is situated in Kuttikanam with beautiful views from the kitchen and bedroom balcony. If anyone is looking for a leisure trip to completely relax, this stay is the go-to. Would prefer this stay again if I come once more."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">BINU JOSEPH <span>• 2026</span></p>
+          <p class="testimonial-quote">"It’s a wonderful property—perfect for a family getaway or a cozy gathering with friends. Tucked away from the bustle of Kuttikkanam town, the peaceful location truly adds to its charm. The house is neat, well-maintained, and thoughtfully managed by Suresh and his family. Suresh was incredibly helpful and always available to assist throughout our stay. The barbecue he prepared was simply outstanding."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">PARTHAN P R <span>• 2026</span></p>
+          <p class="testimonial-quote">"We truly enjoyed our excellent stay at White Vivid Homestay. The rooms were impeccably neat and clean, making it an ideal choice for families and friends. Nestled in a quiet and serene environment, the property offers convenient amenities including a semi-equipped kitchen, TV, refrigerator, and more."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">ANSYA SIYAD <span>• 2026</span></p>
+          <p class="testimonial-quote">"We stayed here for 2 days. It was a wonderful and pleasant stay. Host Amal and his family were very helpful and friendly. Rooms, bathrooms, and the full property were very neat and well maintained. We are very much satisfied with this White Vivid Homestay. I genuinely recommend it for all."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">RAKHI R. PRASAD <span>• 2026</span></p>
+          <p class="testimonial-quote">"We had an excellent stay at White Vivid Homestay, Kuttikkanam. Host Amal and family were very friendly and welcoming. Truly an excellent place for families to enjoy their staycation at Kuttikanam."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">VIJITH VIJAYAN <span>• 2025</span></p>
+          <p class="testimonial-quote">"An absolute gem! From the moment we arrived, it felt like a true home away from home. The host, Mr. Suresh and family, were always available to provide local tips and recommendations. He even arranged BBQ for our dinner. If you are looking for a stay that combines professional standards with local hospitality, look no further."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">ALEN REJI <span>• 2025</span></p>
+          <p class="testimonial-quote">"I had a wonderful stay at White Vivid Homestay. The ambiance was peaceful and welcoming, creating a perfect environment for relaxation. The entire property was very well maintained—clean rooms, tidy surroundings, and thoughtful decor made it feel like a home away from home. The staff were exceptionally courteous and helpful."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">VIVIN DANIEL SAM <span>• 2025</span></p>
+          <p class="testimonial-quote">"Had an excellent homestay experience at White Vivid, Kuttikanam. The villa has been beautifully set up in a quiet neighborhood, surrounded by a well-groomed garden. Combined with the rain and chilly weather, it gives the feeling of a jungle resort. Everything was neat, clean, and in order. The host, Amal, gave us a warm welcome and was always ready to help."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">HARIKRISHNAN MG <span>• 2025</span></p>
+          <p class="testimonial-quote">"What not to say! The stay was splendid. The rooms were spacious and clean. Amal was really helpful, catering to all our needs and guiding us to explore. The place is peaceful and beautiful. I would definitely come back during the rainy season."</p>
+        </article>
+      </div>
+      <div class="swiper-slide">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 star review">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-name">RHEA MATHEW <span>• 2025</span></p>
+          <p class="testimonial-quote">"We had a truly beautiful vacation at this cozy homestay. The space was impeccably clean and thoughtfully designed, with well-planned amenities and appliances in every corner. The host family—Mr. Suresh, Mr. Amal, and his mother—were incredibly warm, considerate, and welcoming. The amenities provided were top-notch and reflected a high level of professionalism."</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-cta-wrap">
+    <a class="reviews-view-all" href="https://www.google.com/maps/place/White+Vivid+Homestay,+Kuttikanam/@9.5909,76.9759,17z/data=!4m9!3m8!1s0x3b064d0f522e1bbd:0x6af84f7ba7c4a2db!5m2!4m1!1i2!8m2!3d9.590922!4d76.975816!16s%2Fg%2F11qt0z3d7_?hl=en&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">View All</a>
+  </div>
+</section>
+
+<section id="Contact" class="rsv-section" aria-label="Reservations">
+  <div class="rsv-shell">
+    <div class="rsv-intro">
+      <div class="experiences-kicker">
+        <span class="experiences-kicker-line" aria-hidden="true"></span>
+        <span>🔑 GETAWAY 🔑</span>
+        <span class="experiences-kicker-line" aria-hidden="true"></span>
+      </div>
+
+      <h2 class="rsv-title">
+        <span>Your Next Escape</span>
+        <em>Awaits in the Mist</em>
+      </h2>
+      <span class="rsv-rule" aria-hidden="true"></span>
+
+      <p class="rsv-copy">Tell us about your perfect getaway. Share your plans with us, and we'll help you make your stay in the hills truly special.</p>
+
+      <div class="rsv-chat">
+        <div class="rsv-chat-main">
+          <div>
+            <span class="rsv-chat-kicker"><span class="rsv-chat-dot" aria-hidden="true"></span> INSTANT HOST RESPONSE</span>
+            <h3>Prefer a quick chat?</h3>
+            <p>Connect directly with our manager on WhatsApp for custom group stays &amp; queries.</p>
+          </div>
+          <a href="https://wa.me/917907004028" class="rsv-chat-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> WHATSAPP US DIRECTLY
+          </a>
+        </div>
+        <div class="rsv-chat-foot">
+          <span><i class="fas fa-location-dot" aria-hidden="true"></i> Kuttikanam, Idukki · Near Vagamon</span>
+          <a href="tel:+917907004028">+91 7907004028</a>
+        </div>
       </div>
     </div>
 
-    <div class="swiper testimonialSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"Had an excellent experience at White Vivid Homestay. The villa is beautifully designed and very well maintained. Everything was just perfect, and we would definitely visit again!"</p>
-            <h3 class="testimonial-name">Perfect Stay Experience</h3>
-            <p class="testimonial-meta"><i class="fab fa-airbnb" aria-hidden="true"></i> Airbnb</p>
-          </article>
+    <div class="rsv-card">
+      <div class="rsv-card-head">
+        <div>
+          <span class="rsv-card-kicker">RESERVATION DESK</span>
+          <h3>Plan Your Visit</h3>
         </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"A perfect place to relax and enjoy nature. The surroundings are calm and peaceful, making it an ideal getaway near Vagamon."</p>
-            <h3 class="testimonial-name">Peaceful and Scenic Stay</h3>
-            <p class="testimonial-meta"><i class="fas fa-plane-departure" aria-hidden="true"></i> MakeMyTrip</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"The rooms were neat, clean, and very comfortable. The entire property is well maintained and gives a premium homely feel."</p>
-            <h3 class="testimonial-name">Clean and Comfortable Rooms</h3>
-            <p class="testimonial-meta"><i class="fas fa-suitcase-rolling" aria-hidden="true"></i> Goibibo</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"The host was extremely welcoming and helpful. Communication and check-in were smooth, making our stay stress-free."</p>
-            <h3 class="testimonial-name">Friendly Host and Great Service</h3>
-            <p class="testimonial-meta"><i class="fab fa-google" aria-hidden="true"></i> Google Reviews</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"Excellent homestay for the price. The facilities, location, and cleanliness make it totally worth it."</p>
-            <h3 class="testimonial-name">Best Value for Money</h3>
-            <p class="testimonial-meta"><i class="fab fa-airbnb" aria-hidden="true"></i> Airbnb</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"We stayed with family and had a wonderful experience. The place is safe, comfortable, and ideal even for kids."</p>
-            <h3 class="testimonial-name">Perfect for Families</h3>
-            <p class="testimonial-meta"><i class="fas fa-plane-departure" aria-hidden="true"></i> MakeMyTrip</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"The interiors and exteriors are beautifully designed. The entire space gives a calm and aesthetic vibe."</p>
-            <h3 class="testimonial-name">Beautiful Interiors and Ambience</h3>
-            <p class="testimonial-meta"><i class="fas fa-suitcase-rolling" aria-hidden="true"></i> Goibibo</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"The property is located close to the town and tourist places, making travel very convenient."</p>
-            <h3 class="testimonial-name">Great Location</h3>
-            <p class="testimonial-meta"><i class="fab fa-google" aria-hidden="true"></i> Google Reviews</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"It truly feels like a home away from home. The atmosphere is pleasant, peaceful, and perfect for relaxation."</p>
-            <h3 class="testimonial-name">Homely and Relaxing Stay</h3>
-            <p class="testimonial-meta"><i class="fab fa-airbnb" aria-hidden="true"></i> Airbnb</p>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="testimonial-card text-center">
-            <div class="testimonial-stars" aria-label="5 star review">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-quote">"One of the best homestays in Kuttikanam. Clean, well-maintained, and surrounded by nature. Highly recommended!"</p>
-            <h3 class="testimonial-name">Highly Recommended Stay</h3>
-            <p class="testimonial-meta"><i class="fas fa-plane-departure" aria-hidden="true"></i> MakeMyTrip</p>
-          </article>
-        </div>
+        <span class="rsv-badge"><i class="fas fa-check" aria-hidden="true"></i> Direct booking</span>
       </div>
-      <div class="swiper-button-next testimonial-next"></div>
-      <div class="swiper-button-prev testimonial-prev"></div>
+
+      <form id="enquiryForm" class="rsv-form" onsubmit="return sendEnquiryMessage(event);">
+        <div class="rsv-row">
+          <div class="rsv-field">
+            <label for="enquiryName">YOUR NAME <span>*</span></label>
+            <div class="rsv-input">
+              <i class="far fa-user" aria-hidden="true"></i>
+              <input id="enquiryName" type="text" placeholder="Your full name" required />
+            </div>
+          </div>
+          <div class="rsv-field">
+            <label for="enquiryPhone">PHONE / WHATSAPP <span>*</span></label>
+            <div class="rsv-input">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <input id="enquiryPhone" type="tel" placeholder="+91 98765 43210" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="rsv-row">
+          <div class="rsv-field">
+            <label for="enquiryCheckIn">CHECK-IN <span>*</span></label>
+            <div class="rsv-input">
+              <i class="far fa-calendar" aria-hidden="true"></i>
+              <input id="enquiryCheckIn" type="date" required />
+            </div>
+          </div>
+          <div class="rsv-field">
+            <label for="enquiryCheckOut">CHECK-OUT <span>*</span></label>
+            <div class="rsv-input">
+              <i class="far fa-calendar-check" aria-hidden="true"></i>
+              <input id="enquiryCheckOut" type="date" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="rsv-field">
+          <label for="enquiryGroup">YOUR TRAVEL GROUP <span>*</span></label>
+          <div class="rsv-input">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <select id="enquiryGroup" required>
+              <option value="" selected disabled>Select number of guests</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+              <option>5 Guests</option>
+              <option>6 Guests</option>
+              <option>7 Guests</option>
+              <option>8+ Guests</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="rsv-field">
+          <label for="enquiryMessage">ANY SPECIAL REQUESTS? <em>Optional</em></label>
+          <div class="rsv-input rsv-input-area">
+            <textarea id="enquiryMessage" rows="3" placeholder="Tell us about food preferences, campfire request, arrival timing, or family celebrations..."></textarea>
+          </div>
+        </div>
+
+        <p class="rsv-privacy"><i class="fas fa-lock" aria-hidden="true"></i> We respect your privacy. No spam — we'll reply via WhatsApp or phone.</p>
+
+        <button type="submit" class="rsv-submit">SEND ENQUIRY <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+
+        <div class="rsv-foot">
+          <span><i class="fas fa-star" aria-hidden="true"></i> Official homestay direct pricing</span>
+          <span><i class="far fa-clock" aria-hidden="true"></i> Reply on WhatsApp</span>
+        </div>
+      </form>
     </div>
-    <div class="text-end">
-      <a class="testimonials-view-all" href="https://www.google.com/maps/place/White+Vivid+Homestay,+Kuttikanam/@9.5909,76.9759,17z/data=!4m9!3m8!1s0x3b064d0f522e1bbd:0x6af84f7ba7c4a2db!5m2!4m1!1i2!8m2!3d9.590922!4d76.975816!16s%2Fg%2F11qt0z3d7_?hl=en&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">View All</a>
+  </div>
+
+  <a href="https://wa.me/917907004028" class="quick-booking" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+</section>
+
+<!-- Location Map -->
+<section id="location" class="location-section" aria-labelledby="location-title">
+  <div class="container text-center">
+    <h2 id="location-title" class="location-title">FIND US HERE</h2>
+    <p class="location-text">White Vivid Homestay is in Kuttikanam, Idukki, close to Peermade and Vagamon. Tap a marker to see the nearby tourist places.</p>
+  </div>
+  <div class="container-fluid px-3 px-md-4">
+    <div id="homestayMap" class="location-map" role="region" aria-label="Map showing White Vivid Homestay and nearby tourist places"></div>
+    <div class="location-actions text-center">
+      <a class="banner-cta location-cta" href="https://www.google.com/maps/place/White+Vivid+Homestay,+Kuttikanam/@9.590922,76.975816,17z/data=!3m1!4b1!4m9!3m8!1s0x3b064d0f522e1bbd:0x6af84f7ba7c4a2db!5m2!4m1!1i2!8m2!3d9.590922!4d76.975816!16s%2Fg%2F11qt0z3d7_?hl=en" target="_blank" rel="noopener noreferrer">OPEN IN GOOGLE MAPS <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="footer-section text-white py-5">
-  <div class="container">
-    <div class="footer-branding text-center">
-      <img src="static/images/logoedited.png" alt="White Vivid Homestay logo" class="footer-logo">
-      <p class="footer-brand-name mb-0">White Vivid Homestay</p>
-    </div>
-    <div class="footer-layout">
-      <div class="footer-panel footer-panel-links">
-        <h5 class="mb-4">Quick Links</h5>
-        <ul class="footer-quick-links">
+<footer class="wvf">
+  <div class="wvf-inner">
+    <div class="wvf-grid">
+      <div class="wvf-brand">
+        <img src="static/images/White_Vivid_Transparent.png" alt="White Vivid Homestay logo" class="wvf-logo">
+        <p>A peaceful hill-station homestay in Kuttikanam, Idukki, with misty mornings, home-style food and warm hospitality.</p>
+      </div>
+
+      <div class="wvf-col">
+        <h5>QUICK LINKS</h5>
+        <ul class="wvf-links">
           <li><a href="#">Home</a></li>
           <li><a href="#About">About</a></li>
           <li><a href="#Gallery">Gallery</a></li>
           <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#contactForm">Contact</a></li>
+          <li><a href="#Contact">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-panel footer-panel-form">
-        <h5 class="mb-4">Let's get in touch</h5>
-        <form id="contactForm" onsubmit="return sendContactMessage(event)">
-          <div class="footer-field mb-4">
-            <input type="text" id="contactName" class="footer-input" placeholder="Name" required>
-          </div>
-          <div class="footer-field mb-4">
-            <input type="email" id="contactEmail" class="footer-input" placeholder="Email*" required>
-          </div>
-          <div class="footer-field mb-4">
-            <input type="tel" id="contactPhone" class="footer-input" placeholder="Phone number">
-          </div>
-          <div class="footer-field mb-4">
-            <textarea id="contactMessage" class="footer-input" rows="3" placeholder="Message*" required></textarea>
-          </div>
-          <button type="submit" class="footer-send-btn">Send &rarr;</button>
-          <div id="formStatus" class="mt-3 fw-semibold" style="display:none;"></div>
-        </form>
+
+      <div class="wvf-col">
+        <h5>GET IN TOUCH</h5>
+        <ul class="wvf-contact">
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>White Vivid Homestay, Near Kuttikanam, Idukki Dist, Kerala - 685531</span></li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+917907004028">+91 790 700 4028</a></li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:thewhitevividholidayhome@gmail.com">thewhitevividholidayhome@gmail.com</a></li>
+        </ul>
       </div>
-      <div class="footer-panel footer-panel-contact">
-        <div class="footer-contact-block">
-          <div class="footer-contact-title-wrap">
-            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            <h5 class="mb-0">Our Address</h5>
-          </div>
-          <p class="footer-contact-address mb-4">
-            White Vivid Homestay -  Near Kuttikanam, 
-            Iddukki Dist, Kerala - 685533
-          </p>
-        </div>
-        <div class="footer-contact-block">
-          <div class="footer-contact-title-wrap">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            <h5 class="mb-0">Call Us</h5>
-          </div>
-          <p class="footer-contact-detail mb-2">Phone: (+91) 7907002840</p>
-          <p class="footer-contact-detail mb-0">Email: thewhitevividholidayhome@gmail.com</p>
-          <div class="footer-social-links" aria-label="Homestay social links">
-            <a href="https://wa.me/917907002840" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.instagram.com/white_vivid_homestay?igsh=MTU0aG5vbnpjcHVyNA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.facebook.com/thewhitevividholidayhome" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.youtube.com/@thewhitevividholidayhome" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <i class="fab fa-youtube" aria-hidden="true"></i>
-            </a>
-          </div>
+
+      <div class="wvf-col">
+        <h5>FOLLOW US</h5>
+        <div class="wvf-social" aria-label="Homestay social links">
+          <a href="https://wa.me/917907002840" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/white_vivid_homestay?igsh=MTU0aG5vbnpjcHVyNA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/thewhitevividholidayhome" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/@thewhitevividholidayhome" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <p class="footer-bottom-copy mb-0">
-        © 2026 White Vivid Homestay 
-      </p>
-      <div class="footer-bottom-links">
+
+    <div class="wvf-bottom">
+      <span>© 2026 White Vivid Homestay. All rights reserved.</span>
+      <div class="wvf-legal">
         <a href="#">Terms &amp; Conditions</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Cancellation Policy</a>
@@ -700,8 +973,69 @@
   </div>
 </footer>
 
+<div id="successToast" style="position:fixed;right:20px;bottom:20px;max-width:360px;padding:16px 18px;background:#1c3827;color:#fff;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,0.18);font-size:14px;font-weight:600;line-height:1.5;z-index:9999;opacity:0;transform:translateY(15px);pointer-events:none;transition:all 0.3s ease;">
+  Enquiry sent successfully. Your message has been forwarded to email and WhatsApp.
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  (function () {
+    const mapEl = document.getElementById('homestayMap');
+    if (!mapEl || typeof L === 'undefined') return;
+
+    const home = [9.590922, 76.975816];
+    const places = [
+      { name: 'Ammachi Kottaram', pos: [9.5722204, 76.971934] },
+      { name: 'Valanjanganam Waterfalls', pos: [9.562943, 76.9774159] },
+      { name: 'Panchalimedu', pos: [9.5302732, 76.973173] },
+      { name: 'Parunthumpara View Point', pos: [9.5503073, 77.0310264] },
+      { name: 'Kailasagiri (Kailasakiri Off-Road)', pos: [9.6251282, 76.9794103] },
+      { name: 'Pattumala Church', pos: [9.5790611, 77.0344993] },
+      { name: 'Vagamon Pine Valley', pos: [9.6544137, 76.93489] },
+      { name: 'Vagamon Meadows', pos: [9.6667628, 76.9240137] },
+      { name: 'Thangal Para', pos: [9.6654722, 76.9079742] },
+      { name: 'Vagamon Lake', pos: [9.6874685, 76.9085578] }
+    ];
+
+    const map = L.map(mapEl, { scrollWheelZoom: false });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const pin = (cls, label) => L.divIcon({
+      className: 'map-pin-wrap',
+      html: '<span class="map-pin ' + cls + '"><span>' + label + '</span></span>',
+      iconSize: [48, 56],
+      iconAnchor: [24, 54],
+      popupAnchor: [0, -50]
+    });
+
+    L.marker(home, { icon: pin('map-pin-home', 'WV'), zIndexOffset: 1000 })
+      .addTo(map)
+      .bindPopup('<strong>White Vivid Homestay</strong><br>Kuttikanam, Idukki')
+      .bindTooltip('White Vivid Homestay', {
+        permanent: true,
+        direction: 'top',
+        offset: [0, -44],
+        className: 'map-home-label'
+      });
+
+    const bounds = L.latLngBounds([home]);
+    places.forEach((p) => {
+      L.marker(p.pos, { icon: pin('map-pin-place', '&#9679;'), title: p.name })
+        .addTo(map)
+        .bindPopup('<strong>' + p.name + '</strong>');
+      bounds.extend(p.pos);
+    });
+
+    map.fitBounds(bounds, { padding: [40, 40] });
+    map.on('click', () => map.scrollWheelZoom.enable());
+    map.on('mouseout', () => map.scrollWheelZoom.disable());
+  })();
+</script>
 <script>
   // Enable flip on touch/click for the gallery cards
   document.querySelectorAll('.flip-card').forEach((card) => {
@@ -797,9 +1131,84 @@
   });
 
   // Mobile nav toggle
-  document.getElementById('navToggle').addEventListener('click', function() {
-    document.getElementById('mainNavLinks').classList.toggle('open');
+  const navToggle = document.getElementById('navToggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      document.getElementById('mainNavLinks').classList.toggle('open');
+    });
+  }
+
+  const topbar = document.querySelector('.topbar');
+  const themeToggle = document.getElementById('themeToggle');
+  const themeToggleIcon = themeToggle ? themeToggle.querySelector('i') : null;
+  const themeStorageKey = 'whiteVividTheme';
+
+  function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    document.body.classList.toggle('dark-theme', isDark);
+
+    if (themeToggle && themeToggleIcon) {
+      themeToggleIcon.classList.toggle('fa-moon', !isDark);
+      themeToggleIcon.classList.toggle('fa-sun', isDark);
+      const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+    }
+  }
+
+  const savedTheme = localStorage.getItem(themeStorageKey);
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark-theme');
+      const nextTheme = isDark ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem(themeStorageKey, nextTheme);
+    });
+  }
+
+  const handleHeaderState = () => {
+    if (!topbar) return;
+    topbar.classList.toggle('scrolled', window.scrollY > 20);
+  };
+
+  handleHeaderState();
+  window.addEventListener('scroll', handleHeaderState, { passive: true });
+
+  function scrollToHashTarget(hash) {
+    if (!hash || hash === '#') return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const header = document.querySelector('.topbar');
+    const headerOffset = header ? header.offsetHeight + 12 : 70;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
+  }
+
+  document.querySelectorAll('.topbar-nav-menu a[href^="#"], .topbar a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      event.preventDefault();
+      scrollToHashTarget(hash);
+      history.pushState(null, '', hash);
+    });
   });
+
+  if (window.location.hash) {
+    requestAnimationFrame(() => scrollToHashTarget(window.location.hash));
+  }
 
   const fadeUpTargets = document.querySelectorAll(
     '.about-section, #Gallery, .why-white-vivid, #destinations, .testimonials-section, .footer-section'
@@ -825,31 +1234,55 @@
     fadeUpTargets.forEach((target) => revealObserver.observe(target));
   }
 
-  function sendContactMessage(event) {
+  function showSuccessToast(message) {
+    const toast = document.getElementById('successToast');
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+
+    clearTimeout(showSuccessToast.timeoutId);
+    showSuccessToast.timeoutId = setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(15px)';
+    }, 3000);
+  }
+
+  function sendEnquiryMessage(event) {
     event.preventDefault();
 
-    const name = document.getElementById('contactName').value.trim();
-    const email = document.getElementById('contactEmail').value.trim();
-    const phone = document.getElementById('contactPhone').value.trim();
-    const message = document.getElementById('contactMessage').value.trim();
+    const name = document.getElementById('enquiryName').value.trim();
+    const phone = document.getElementById('enquiryPhone').value.trim();
+    const checkIn = document.getElementById('enquiryCheckIn').value;
+    const checkOut = document.getElementById('enquiryCheckOut').value;
+    const group = document.getElementById('enquiryGroup').value;
+    const message = document.getElementById('enquiryMessage').value.trim();
+
+    const emailBody = encodeURIComponent(
+      `New enquiry from White Vivid Homestay\n\nName: ${name}\nPhone: ${phone}\nCheck-in: ${checkIn || 'Not provided'}\nCheck-out: ${checkOut || 'Not provided'}\nGroup: ${group || 'Not provided'}\nMessage: ${message || 'No message provided'}`
+    );
+    const emailSubject = encodeURIComponent('New enquiry from White Vivid Homestay');
+    const emailUrl = `mailto:thewhitevividholidayhome@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
     const whatsappText = encodeURIComponent(
-      `New enquiry from White Vivid Homestay\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+      `New enquiry from White Vivid Homestay\n\nName: ${name}\nPhone: ${phone}\nCheck-in: ${checkIn || 'Not provided'}\nCheck-out: ${checkOut || 'Not provided'}\nGroup: ${group || 'Not provided'}\nMessage: ${message || 'No message provided'}`
     );
     const whatsappUrl = `https://api.whatsapp.com/send?phone=917907004028&text=${whatsappText}`;
-    const whatsappWindow = window.open(whatsappUrl, '_blank');
-    if (!whatsappWindow) {
-      window.location.href = whatsappUrl;
-    }
 
-    const formStatus = document.getElementById('formStatus');
-    formStatus.textContent = 'WhatsApp opened. Please tap Send in WhatsApp to notify White Vivid.';
-    formStatus.style.display = 'block';
+    window.location.href = emailUrl;
+    setTimeout(() => {
+      const whatsappWindow = window.open(whatsappUrl, '_blank');
+      if (!whatsappWindow) {
+        window.location.href = whatsappUrl;
+      }
+    }, 300);
 
-    document.getElementById('contactForm').reset();
-
+    document.getElementById('enquiryForm').reset();
+    showSuccessToast('Enquiry sent successfully. Your message has been forwarded to email and WhatsApp.');
     return false;
   }
+
 </script>
 </body>
 </html>
