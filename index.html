@@ -1052,13 +1052,6 @@
 
     const home = [9.590922, 76.975816];
     const places = [
-      { name: 'Kuttikkanam', pos: [9.5823102, 76.970999], type: 'town' },
-      { name: 'Peermade', pos: [9.5720149, 76.9958988], type: 'town' },
-      { name: 'Vandiperiyar', pos: [9.5729206, 77.0918879], type: 'town' },
-      { name: 'Kumily', pos: [9.6067952, 77.1671018], type: 'town' },
-      { name: 'Mundakayam', pos: [9.5187367, 76.8876399], type: 'town' },
-      { name: 'Kanjirappally', pos: [9.5583077, 76.791361], type: 'town' },
-      { name: 'Erumely', pos: [9.4813743, 76.8448927], type: 'town' },
       { name: 'Ammachi Kottaram', pos: [9.5722204, 76.971934] },
       { name: 'Valanjanganam Waterfalls', pos: [9.562943, 76.9774159] },
       { name: 'Panchalimedu', pos: [9.5302732, 76.973173] },
@@ -1087,7 +1080,21 @@
 
     L.marker(home, { icon: pin('map-pin-home', 'WV'), zIndexOffset: 1000 })
       .addTo(map)
-      .bindPopup('<strong>White Vivid Homestay</strong><br>Kuttikanam, Idukki')
+      .bindPopup(() => {
+        const popup = document.createElement('div');
+        const name = document.createElement('strong');
+        const link = document.createElement('a');
+
+        name.textContent = 'White Vivid Homestay';
+        link.href = 'https://www.google.com/maps/search/?api=1&query=' + home[0] + ',' + home[1];
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'View location in Google Maps';
+        link.style.display = 'block';
+        link.style.marginTop = '6px';
+        popup.append(name, document.createElement('br'), 'Kuttikanam, Idukki', link);
+        return popup;
+      })
       .bindTooltip('White Vivid Homestay', {
         permanent: true,
         direction: 'top',
@@ -1102,19 +1109,9 @@
       L.marker(p.pos, { icon: pin(markerClass, markerLabel), title: p.name })
         .addTo(map)
         .bindPopup(() => {
-          const popup = document.createElement('div');
           const name = document.createElement('strong');
-          const locationLink = document.createElement('a');
-
           name.textContent = p.name;
-          locationLink.href = `https://www.google.com/maps/search/?api=1&query=${p.pos[0]},${p.pos[1]}`;
-          locationLink.target = '_blank';
-          locationLink.rel = 'noopener noreferrer';
-          locationLink.textContent = 'View location in Google Maps';
-          locationLink.style.display = 'block';
-          locationLink.style.marginTop = '6px';
-          popup.append(name, locationLink);
-          return popup;
+          return name;
         });
       bounds.extend(p.pos);
     });
@@ -1140,12 +1137,6 @@
     card.querySelector('.comfort-front').setAttribute('aria-hidden', String(isFlipped));
     card.querySelector('.comfort-back').setAttribute('aria-hidden', String(!isFlipped));
   };
-
-  window.addEventListener('scroll', () => {
-    comfortCards.forEach((card) => {
-      if (card.classList.contains('flip')) setComfortFlip(card, false);
-    });
-  }, { passive: true });
 
   comfortCards.forEach((card) => {
     const toggleComfort = () => setComfortFlip(card, !card.classList.contains('flip'));
