@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions - WHITE VIVID HOMESTAY</title>
+  <meta name="description" content="Terms and conditions for booking and staying at White Vivid Homestay, Kuttikanam, Idukki, Kerala." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <style>
+    .terms-page {
+      background: #f5f5f0;
+      padding: 56px 16px 72px;
+    }
+
+    .terms-content {
+      max-width: 860px;
+      margin: 0 auto;
+      color: #3a3a3a;
+      font-family: 'Josefin Sans', sans-serif;
+      line-height: 1.8;
+    }
+
+    .terms-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: #8a6b58;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .terms-content .terms-welcome {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .terms-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #8a6b58;
+      margin: 2rem 0 0.6rem;
+    }
+
+    .terms-card {
+      background: #fff;
+      border: 1px solid #e6e9e6;
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .terms-card-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .terms-num {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #17512f;
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .terms-content .terms-card h3 {
+      margin: 0;
+      color: #17512f;
+    }
+
+    .terms-time-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .terms-time {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      border: 1px solid #e8ece9;
+      background: #f7f9fa;
+    }
+
+    .terms-time.in {
+      background: #edfbf1;
+      border-color: #d3f0dc;
+    }
+
+    .terms-time-icon {
+      flex: 0 0 auto;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      color: #17512f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .terms-time small {
+      display: block;
+      letter-spacing: 0.04em;
+      color: #5b6b7a;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .terms-time strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #111;
+      line-height: 1.2;
+    }
+
+    .terms-contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 22px 26px;
+      border-radius: 14px;
+      border: 1px solid #e8ece9;
+      background: #f7f9fa;
+    }
+
+    .terms-contact-info {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .terms-contact-icon {
+      color: #17512f;
+      font-size: 1.4rem;
+      margin-top: 4px;
+    }
+
+    .terms-whatsapp {
+      margin-top: 10px;
+    }
+
+    .terms-whatsapp a {
+      color: #17512f;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .terms-whatsapp a i {
+      color: #25d366;
+    }
+
+    .terms-promise {
+      border-left: 1px solid #dfe5e1;
+      padding-left: 24px;
+    }
+
+    .terms-promise-label {
+      color: #17512f;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 0.9rem;
+    }
+
+    .terms-promise-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+      .terms-contact-box { grid-template-columns: 1fr; }
+      .terms-promise { border-left: 0; border-top: 1px solid #dfe5e1; padding: 16px 0 0; }
+    }
+
+    body.dark-theme .terms-contact-box {
+      background: #161616;
+      border-color: rgba(214, 181, 106, 0.25);
+    }
+
+    body.dark-theme .terms-contact-icon,
+    body.dark-theme .terms-promise-label,
+    body.dark-theme .terms-whatsapp a {
+      color: #d6b56a;
+    }
+
+    body.dark-theme .terms-promise {
+      border-color: rgba(214, 181, 106, 0.25);
+    }
+
+    .terms-alert {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 22px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      border: 1px solid #f7e9a8;
+      background: #fefae8;
+      color: #7a3a05;
+    }
+
+    .terms-alert i {
+      color: #d9730d;
+      font-size: 1.3rem;
+    }
+
+    body.dark-theme .terms-alert {
+      background: #1a1608;
+      border-color: rgba(214, 181, 106, 0.4);
+      color: #d6b56a;
+    }
+
+    .terms-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .terms-list li {
+      position: relative;
+      padding: 6px 0 6px 34px;
+    }
+
+    .terms-list li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      color: #22a455;
+    }
+
+    .terms-thanks {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .terms-card { padding: 22px 18px; }
+      .terms-time-grid { grid-template-columns: 1fr; }
+    }
+
+    body.dark-theme .terms-page {
+      background: #000 !important;
+    }
+
+    body.dark-theme .terms-content {
+      color: #e8e8e8;
+    }
+
+    body.dark-theme .terms-card {
+      background: #0d0d0d;
+      border-color: rgba(214, 181, 106, 0.25);
+    }
+
+    body.dark-theme .terms-time,
+    body.dark-theme .terms-time.in {
+      background: #161616;
+      border-color: rgba(214, 181, 106, 0.25);
+    }
+
+    body.dark-theme .terms-time strong {
+      color: #fff;
+    }
+
+    body.dark-theme .terms-time small {
+      color: #bdbdbd;
+    }
+
+    body.dark-theme .terms-time-icon {
+      background: #000;
+      color: #d6b56a;
+    }
+
+    body.dark-theme .terms-num {
+      background: #d6b56a;
+      color: #000;
+    }
+
+    body.dark-theme .terms-content h1,
+    body.dark-theme .terms-content h3,
+    body.dark-theme .terms-content .terms-card h3 {
+      color: #d6b56a !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Info Bar -->
+<div class="topbar">
+  <div class="container-fluid px-2">
+    <div class="topbar-inner">
+      <div class="topbar-brand-block">
+        <a href="index.html" class="topbar-brand">
+          <img src="static/images/White_Vivid_logo.png" alt="White Vivid Homestay Logo" />
+          <span>White Vivid Homestay</span>
+        </a>
+      </div>
+
+      <ul class="topbar-nav-menu" id="mainNavLinks">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.html#About">ABOUT</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="index.html#destinations">NEARBY</a></li>
+        <li><a href="index.html#reviews">REVIEWS</a></li>
+        <li><a href="#footer">CONTACT</a></li>
+      </ul>
+
+      <div class="topbar-right">
+        <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown phone-dropdown">
+          <button class="topbar-phone dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-phone"></i> +91 7907004028
+          </button>
+          <ul class="dropdown-menu phone-dropdown-menu">
+            <li>
+              <a class="dropdown-item phone-option" href="tel:+917907004028">
+                <i class="fas fa-phone"></i> Call Now
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item phone-option" href="https://wa.me/917907004028" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a class="btn-book-stay" href="index.html#Contact">BOOK YOUR STAY</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="terms-page">
+  <div class="terms-content">
+    <h1>Terms &amp; Conditions</h1>
+    <p class="terms-welcome">Welcome to White Vivid Homestay</p>
+
+    <p>Thank you for choosing White Vivid Homestay, Kuttikanam. By making a reservation or using our website, you agree to the following terms and conditions.</p>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">1</span><h3>Bookings &amp; Reservations</h3></div>
+      <ul class="terms-list">
+        <li>All bookings are subject to availability and confirmation.</li>
+        <li>Reservations are confirmed only after the required advance payment is received.</li>
+        <li>Guests must provide accurate booking and contact details.</li>
+      </ul>
+    </div>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">2</span><h3>Check-in &amp; Check-out</h3></div>
+      <div class="terms-time-grid">
+        <div class="terms-time in">
+          <span class="terms-time-icon"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i></span>
+          <div><small>Check-in time</small><strong>1:00 PM</strong></div>
+        </div>
+        <div class="terms-time">
+          <span class="terms-time-icon"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i></span>
+          <div><small>Check-out time</small><strong>11:00 AM</strong></div>
+        </div>
+      </div>
+      <ul class="terms-list">
+        <li>Early check-in and late check-out are subject to availability and prior approval.</li>
+        <li>Guests must provide a valid government-issued photo ID at check-in.</li>
+      </ul>
+    </div>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">3</span><h3>Cancellation &amp; Refund Policy</h3></div>
+      <div class="terms-alert">
+        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+        <span>Please review your dates carefully before making an advance payment as all reservations are strictly non-refundable.</span>
+      </div>
+      <ul class="terms-list">
+        <li>All confirmed bookings are non-refundable.</li>
+        <li>In case of cancellation by the guest, the advance payment or booking amount will not be refunded.</li>
+        
+      </ul>
+    </div>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">4</span><h3>Guest Responsibilities</h3></div>
+      <ul class="terms-list">
+        <li>Guests must maintain cleanliness and take care of the property.</li>
+        <li>Any damage to furniture, appliances or property caused by guests may incur additional charges.</li>
+        <li>Electrical appliances should be switched off when not in use.</li>
+        <li>Guests are responsible for their personal belongings.</li>
+      </ul>
+    </div>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">5</span><h3>Property Guidelines</h3></div>
+      <ul class="terms-list">
+        <li>Only registered guests are permitted to stay at the property.</li>
+        <li>Please respect the peaceful surroundings and avoid excessive noise.</li>
+        <li>Smoking inside the property is strictly prohibited.</li>
+      </ul>
+    </div>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">6</span><h3>Website Usage &amp; Privacy</h3></div>
+      <ul class="terms-list">
+        <li>All photographs, content, branding and designs on this website belong to White Vivid Homestay.</li>
+        <li>Website content is strictly prohibited from being copied or reproduced.</li>
+        <li>Personal information shared with us will be used for booking and communication purposes.</li>
+        <li>We reserve the right to update these terms when necessary.</li>
+      </ul>
+    </div>
+
+    <div class="terms-card">
+      <div class="terms-card-head"><span class="terms-num">7</span><h3>Contact Us</h3></div>
+      <p>For booking enquiries, clarifications, or assistance prior to your trip, please reach out to us directly.</p>
+      <div class="terms-contact-box">
+        <div class="terms-contact-info">
+          <i class="fa-solid fa-location-dot terms-contact-icon" aria-hidden="true"></i>
+          <div>
+            <strong>White Vivid Homestay</strong><br>
+            Kuttikanam, Peermade,<br>
+            Idukki, Kerala &ndash; 685531.
+            <div class="terms-whatsapp">
+              <a href="https://wa.me/917907004028" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp: +91 7907004028</a>
+            </div>
+          </div>
+        </div>
+        <div class="terms-promise">
+          <span class="terms-promise-label"><i class="fa-solid fa-heart" aria-hidden="true"></i> HOSPITALITY PROMISE</span>
+          <p class="terms-promise-text">&ldquo;Thank you for choosing White Vivid. We look forward to welcoming you!&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer id="footer" class="wvf">
+  <div class="wvf-inner">
+    <div class="wvf-grid">
+      <div class="wvf-brand">
+        <img src="static/images/White_Vivid_logo.png" alt="White Vivid Homestay logo" class="wvf-logo">
+        <p>Where Nature Meets Serenity, Above the Clouds.</p>
+      </div>
+
+      <div class="wvf-col">
+        <h5>QUICK LINKS</h5>
+        <ul class="wvf-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#About">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#destinations">Nearby</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="index.html#Contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="wvf-col">
+        <h5>GET IN TOUCH</h5>
+        <ul class="wvf-contact">
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>White Vivid Homestay, Near Kuttikanam, Idukki Dist, Kerala - 685531</span></li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+917907004028">+91 790 700 4028</a></li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:thewhitevividholidayhome@gmail.com">thewhitevividholidayhome@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="wvf-col">
+        <h5>FOLLOW US</h5>
+        <div class="wvf-social" aria-label="Homestay social links">
+          <a href="https://wa.me/917907004028" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/white_vivid_homestay?igsh=MTU0aG5vbnpjcHVyNA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/thewhitevividholidayhome" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/@thewhitevividholidayhome" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wvf-bottom">
+      <span>© 2026 White Vivid Homestay. All rights reserved.</span>
+      <div class="wvf-legal">
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="cancellation.html">Cancellation Policy</a>
+      </div>
+    </div>
+    <p class="wvf-credit">Designed &amp; Developed by Aswathy Amal | White Vivid</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function () {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleIcon = themeToggle ? themeToggle.querySelector('i') : null;
+    const themeStorageKey = 'whiteVividTheme';
+    const topbar = document.querySelector('.topbar');
+
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      document.body.classList.toggle('dark-theme', isDark);
+      if (themeToggle && themeToggleIcon) {
+        themeToggleIcon.classList.toggle('fa-moon', !isDark);
+        themeToggleIcon.classList.toggle('fa-sun', isDark);
+        const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+        themeToggle.setAttribute('aria-label', label);
+        themeToggle.setAttribute('title', label);
+      }
+    }
+
+    applyTheme(localStorage.getItem(themeStorageKey) === 'dark' ? 'dark' : 'light');
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function () {
+        const next = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem(themeStorageKey, next);
+      });
+    }
+
+    const handleHeaderState = function () {
+      topbar.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    handleHeaderState();
+    window.addEventListener('scroll', handleHeaderState, { passive: true });
+  })();
+</script>
+</body>
+</html>
