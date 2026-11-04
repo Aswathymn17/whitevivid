@@ -582,7 +582,7 @@
         </div>
         <div class="swiper-slide">
           <div class="dest-card">
-            <img src="static/images/Parunthumpara.jpg" alt="Parunthumpara">
+            <img src="static/images/parunthumpara_img.jpg" alt="Parunthumpara">
             <p class="dest-name">Parunthumpara View Point</p>
              <p class="dest-desc">Eagle view point with rolling hills.</p>
             <div class="dest-meta">
@@ -593,7 +593,7 @@
         </div>
         <div class="swiper-slide">
           <div class="dest-card">
-            <img src="static/images/Valanjanganam Waterfalls.jpg" alt="Parunthumpara">
+            <img src="static/images/valanjanganam.webp" alt="Valanjanganam Waterfalls">
             <p class="dest-name">Valanjanganam Waterfalls</p>
              <p class="dest-desc">Scenic waterfall flowing beside the highway.</p> 
             <div class="dest-meta">
@@ -615,7 +615,7 @@
         </div>
         <div class="swiper-slide">
           <div class="dest-card">
-            <img src="static/images/ammachi kottaram.jpg" alt="Ammachi Kottaam">
+            <img src="static/images/Ammachikottaram.webp" alt="Ammachi Kottaam">
             <p class="dest-name">Ammachi Kottaram</p>
              <p class="dest-desc">Historic palace of the Travancore queen.</p>
             <div class="dest-meta">
@@ -1000,7 +1000,8 @@
           <li><a href="#">Home</a></li>
           <li><a href="#About">About</a></li>
           <li><a href="#Gallery">Gallery</a></li>
-          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#destinations">Nearby</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#Contact">Contact</a></li>
         </ul>
       </div>
@@ -1028,11 +1029,12 @@
     <div class="wvf-bottom">
       <span>© 2026 White Vivid Homestay. All rights reserved.</span>
       <div class="wvf-legal">
-        <a href="#">Terms &amp; Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cancellation Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="cancellation.html">Cancellation Policy</a>
       </div>
     </div>
+    <p class="wvf-credit">Designed &amp; Developed by Aswathy Amal | White Vivid</p>
   </div>
 </footer>
 
@@ -1050,6 +1052,13 @@
 
     const home = [9.590922, 76.975816];
     const places = [
+      { name: 'Kuttikkanam', pos: [9.5823102, 76.970999], type: 'town' },
+      { name: 'Peermade', pos: [9.5720149, 76.9958988], type: 'town' },
+      { name: 'Vandiperiyar', pos: [9.5729206, 77.0918879], type: 'town' },
+      { name: 'Kumily', pos: [9.6067952, 77.1671018], type: 'town' },
+      { name: 'Mundakayam', pos: [9.5187367, 76.8876399], type: 'town' },
+      { name: 'Kanjirappally', pos: [9.5583077, 76.791361], type: 'town' },
+      { name: 'Erumely', pos: [9.4813743, 76.8448927], type: 'town' },
       { name: 'Ammachi Kottaram', pos: [9.5722204, 76.971934] },
       { name: 'Valanjanganam Waterfalls', pos: [9.562943, 76.9774159] },
       { name: 'Panchalimedu', pos: [9.5302732, 76.973173] },
@@ -1088,9 +1097,25 @@
 
     const bounds = L.latLngBounds([home]);
     places.forEach((p) => {
-      L.marker(p.pos, { icon: pin('map-pin-place', '&#9679;'), title: p.name })
+      const markerClass = p.type === 'town' ? 'map-pin-town' : 'map-pin-place';
+      const markerLabel = p.type === 'town' ? 'T' : '&#9679;';
+      L.marker(p.pos, { icon: pin(markerClass, markerLabel), title: p.name })
         .addTo(map)
-        .bindPopup('<strong>' + p.name + '</strong>');
+        .bindPopup(() => {
+          const popup = document.createElement('div');
+          const name = document.createElement('strong');
+          const locationLink = document.createElement('a');
+
+          name.textContent = p.name;
+          locationLink.href = `https://www.google.com/maps/search/?api=1&query=${p.pos[0]},${p.pos[1]}`;
+          locationLink.target = '_blank';
+          locationLink.rel = 'noopener noreferrer';
+          locationLink.textContent = 'View location in Google Maps';
+          locationLink.style.display = 'block';
+          locationLink.style.marginTop = '6px';
+          popup.append(name, locationLink);
+          return popup;
+        });
       bounds.extend(p.pos);
     });
 
@@ -1349,27 +1374,18 @@
     const group = document.getElementById('enquiryGroup').value;
     const message = document.getElementById('enquiryMessage').value.trim();
 
-    const emailBody = encodeURIComponent(
-      `New enquiry from White Vivid Homestay\n\nName: ${name}\nPhone: ${phone}\nCheck-in: ${checkIn || 'Not provided'}\nCheck-out: ${checkOut || 'Not provided'}\nGroup: ${group || 'Not provided'}\nMessage: ${message || 'No message provided'}`
-    );
-    const emailSubject = encodeURIComponent('New enquiry from White Vivid Homestay');
-    const emailUrl = `mailto:thewhitevividholidayhome@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
     const whatsappText = encodeURIComponent(
-      `New enquiry from White Vivid Homestay\n\nName: ${name}\nPhone: ${phone}\nCheck-in: ${checkIn || 'Not provided'}\nCheck-out: ${checkOut || 'Not provided'}\nGroup: ${group || 'Not provided'}\nMessage: ${message || 'No message provided'}`
+      `Hello White Vivid Homestay!\n\nI would like to enquire about a stay. Please find my details below:\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📅 Check-in: ${checkIn}\n📅 Check-out: ${checkOut}\n👥 Number of Guests: ${group}\n\n💬 Message: ${message || 'No additional message'}\n\nKindly let me know the availability and booking details.\n\nThank you!`
     );
     const whatsappUrl = `https://api.whatsapp.com/send?phone=917907004028&text=${whatsappText}`;
 
-    window.location.href = emailUrl;
-    setTimeout(() => {
-      const whatsappWindow = window.open(whatsappUrl, '_blank');
-      if (!whatsappWindow) {
-        window.location.href = whatsappUrl;
-      }
-    }, 300);
+    const whatsappWindow = window.open(whatsappUrl, '_blank');
+    if (!whatsappWindow) {
+      window.location.href = whatsappUrl;
+    }
 
     document.getElementById('enquiryForm').reset();
-    showSuccessToast('Enquiry sent successfully. Your message has been forwarded to email and WhatsApp.');
+    showSuccessToast('Opening WhatsApp with your enquiry...');
     return false;
   }
 
