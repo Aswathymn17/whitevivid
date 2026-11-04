@@ -233,11 +233,12 @@
           <h3>Entertainment Area</h3>
           <div class="room-tags">
             <span>Smart TV</span>
-            <span>Sofa Seating</span>
-            <span>Coffee Table</span>
+            <span>Sofa Set</span>
+            <span>Centre Table</span>
           </div>
           <div class="room-tags secondary-tags">
             <span>Refrigerator</span>
+            <span>Carrom Board</span>
           </div>
         </div>
       </article>
@@ -397,7 +398,7 @@
               <img src="static/images/flip4.jpeg" class="img-fluid" alt="Gallery 4">
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/flipback4.jpeg" alt="Gallery 4 Back">
+              <video src="static/images/flipback.mp4" muted loop playsinline preload="auto" aria-label="Gallery 4 Back video"></video>
             </div>
           </div>
         </div>
@@ -418,10 +419,10 @@
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="static/images/flip6.jpeg" class="img-fluid" alt="Gallery 6">
+              <video src="static/images/flip.mp4" autoplay muted loop playsinline preload="auto" aria-label="Gallery 6 video"></video>
             </div>
             <div class="flip-card-back image-back">
-              <img src="static/images/flipback6.jpeg" alt="Gallery 6 Back">
+              <img src="static/images/flip6.jpeg" alt="Gallery 6 Back">
             </div>
           </div>
         </div>
@@ -976,8 +977,13 @@
 <!-- Location Map -->
 <section id="location" class="location-section" aria-labelledby="location-title">
   <div class="container text-center">
-    <h2 id="location-title" class="location-title">FIND US HERE</h2>
-    <p class="location-text">White Vivid Homestay is in Kuttikanam, Idukki, close to Peermade and Vagamon. Tap a marker to see the nearby tourist places.</p>
+    <div class="experiences-kicker location-kicker">
+      <span class="experiences-kicker-line" aria-hidden="true"></span>
+      <span>📍 LOCATION 📍</span>
+      <span class="experiences-kicker-line" aria-hidden="true"></span>
+    </div>
+    <h2 id="location-title" class="location-title">Explore Our Surroundings</h2>
+    <p class="location-text">Located in the heart of Kuttikanam, White Vivid Homestay offers easy access to the scenic landscapes and attractions of Idukki, Peermade and Vagamon. Tap a marker to discover nearby places.</p>
   </div>
   <div class="container-fluid px-3 px-md-4">
     <div id="homestayMap" class="location-map" role="region" aria-label="Map showing White Vivid Homestay and nearby tourist places"></div>
@@ -1004,6 +1010,7 @@
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="#destinations">Nearby</a></li>
           <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#location-title">Location</a></li>
           <li><a href="#Contact">Contact</a></li>
         </ul>
       </div>
@@ -1126,8 +1133,34 @@
 <script>
   // Enable flip on touch/click for the gallery cards
   document.querySelectorAll('.flip-card').forEach((card) => {
+    const video = card.querySelector('video');
+    const videoOnFront = video && video.closest('.flip-card-front');
+    const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    let hovering = false;
+
+    // Play the video only while the side that contains it is facing the viewer
+    const syncVideo = () => {
+      if (!video) return;
+      const showingBack = card.classList.contains('flip') || hovering;
+      const shouldPlay = videoOnFront ? !showingBack : showingBack;
+      if (shouldPlay) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+
     card.addEventListener('click', () => {
       card.classList.toggle('flip');
+      syncVideo();
+    });
+    card.addEventListener('mouseenter', () => {
+      hovering = canHover();
+      syncVideo();
+    });
+    card.addEventListener('mouseleave', () => {
+      hovering = false;
+      syncVideo();
     });
   });
 
@@ -1319,7 +1352,7 @@
   }
 
   const fadeUpTargets = document.querySelectorAll(
-    '.about-section, #Gallery, .why-white-vivid, #destinations, .testimonials-section, .footer-section, #villa .home-intro-kicker, #villa .home-intro-title, #villa .home-intro-details p, #villa .home-intro-btn, .inside-section .inside-header, .inside-section .inside-card'
+    '.about-section, .footer-section, #villa .home-intro-kicker, #villa .home-intro-title, #villa .home-intro-details p, #villa .home-intro-btn, .inside-section .inside-header, .inside-section .inside-card'
   );
 
   if (fadeUpTargets.length) {
@@ -1340,6 +1373,34 @@
     });
 
     fadeUpTargets.forEach((target) => revealObserver.observe(target));
+  }
+
+  const staggerSelector = 'h1, h2, h3, h4, p, form, a.beyond-cta, .beyond-kicker-row, .flip-card, .comfort-item, .dest-explore-more, .dest-heading-row, .location-map-wrap, #locationMap';
+  const staggerExclude = '.carousel, .leaflet-container, .dropdown-menu, .modal';
+  const staggerChosen = [];
+
+  document.querySelectorAll('#Gallery, .why-white-vivid, #destinations, .testimonials-section, #Contact, #location').forEach((section) => {
+    section.querySelectorAll(staggerSelector).forEach((el) => {
+      if (el.closest(staggerExclude)) return;
+      if (staggerChosen.some((chosen) => chosen.contains(el))) return;
+      staggerChosen.push(el);
+      el.classList.add('reveal-item');
+    });
+  });
+
+  if (staggerChosen.length) {
+    const staggerObserver = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => entry.isIntersecting).forEach((entry, index) => {
+        entry.target.style.setProperty('--reveal-delay', Math.min(index * 0.18, 1.4) + 's');
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    });
+
+    staggerChosen.forEach((el) => staggerObserver.observe(el));
   }
 
   function showSuccessToast(message) {
