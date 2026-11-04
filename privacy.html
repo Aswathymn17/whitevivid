@@ -13,7 +13,9 @@
   <link rel="stylesheet" href="static/css/style.css" />
   <style>
     .privacy-page {
-      background: #f5f5f0;
+      background-color: #fff;
+      background-image: url("static/images/gallery-contour.svg");
+      background-repeat: repeat;
       padding: 56px 16px 72px;
     }
 
@@ -68,11 +70,12 @@
     .privacy-commitment {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 28px 30px;
-      margin-bottom: 24px;
+      gap: 16px;
+      padding: 16px 26px;
+      margin: 0 auto 24px;
+      max-width: 820px;
       border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 24px;
+      border-radius: 20px;
       background: #254d39;
       color: #f5f7f4;
     }
@@ -80,15 +83,15 @@
     .privacy-commitment-icon {
       flex: 0 0 auto;
       position: relative;
-      width: 60px;
-      height: 60px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #2d7651;
       color: #d7f0df;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
 
     .privacy-shield-heart {
@@ -163,7 +166,8 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 32px 36px;
-      margin: 0 16px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .privacy-card {
@@ -237,7 +241,8 @@
       border: 1px solid #e6e9e6;
       border-radius: 24px;
       padding: 30px 28px;
-      margin-top: 24px;
+      margin: 24px auto 0;
+      max-width: 820px;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
@@ -405,10 +410,8 @@
           <i class="fas fa-moon" aria-hidden="true"></i>
         </button>
         <div class="dropdown phone-dropdown">
-          <button class="topbar-phone dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-phone"></i> +91 7907004028
-          </button>
-          <ul class="dropdown-menu phone-dropdown-menu">
+          <button class="btn-book-stay dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">BOOK YOUR STAY</button>
+          <ul class="dropdown-menu dropdown-menu-end phone-dropdown-menu">
             <li>
               <a class="dropdown-item phone-option" href="tel:+917907004028">
                 <i class="fas fa-phone"></i> Call Now
@@ -419,9 +422,13 @@
                 <i class="fab fa-whatsapp"></i> WhatsApp
               </a>
             </li>
+            <li>
+              <a class="dropdown-item phone-option" href="index.html#Contact">
+                <i class="far fa-envelope"></i> Enquiry Form
+              </a>
+            </li>
           </ul>
         </div>
-        <a class="btn-book-stay" href="index.html#Contact">BOOK YOUR STAY</a>
       </div>
     </div>
   </div>
@@ -491,7 +498,7 @@
             <span class="privacy-number" aria-hidden="true">04</span>
           </div>
           <h3>Content Protection</h3>
-          <p>Copying, reproducing, distributing, or using any website content without prior written permission is strictly prohibited.</p>
+          <p>Copying, reproducing, distributing, or using any website content is strictly prohibited.</p>
           <div class="privacy-card-note"><i class="fa-solid fa-ban" aria-hidden="true"></i><span>Permission Required</span></div>
         </section>
 
